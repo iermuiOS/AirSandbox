@@ -42,7 +42,8 @@ typedef enum : NSUInteger {
     if (self)
     {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        int cellWidth = [UIScreen mainScreen].bounds.size.width - 2*ASWindowPadding;
+        //int cellWidth = [UIScreen mainScreen].bounds.size.width - 2*ASWindowPadding;
+        int cellWidth = [UIScreen mainScreen].bounds.size.width;
         
         _lbName = [UILabel new];
         _lbName.backgroundColor = [UIColor clearColor];
@@ -110,7 +111,8 @@ typedef enum : NSUInteger {
 {
     [super viewWillLayoutSubviews];
     
-    int viewWidth = [UIScreen mainScreen].bounds.size.width - 2*ASWindowPadding;
+    //int viewWidth = [UIScreen mainScreen].bounds.size.width - 2*ASWindowPadding;
+    int viewWidth = [UIScreen mainScreen].bounds.size.width;
     int closeWidth = 60;
     int closeHeight = 28;
     
@@ -288,9 +290,10 @@ typedef enum : NSUInteger {
     if (_window == nil) {
         _window = [UIWindow new];
         CGRect keyFrame = [UIScreen mainScreen].bounds;
-        keyFrame.origin.y += 64;
-        keyFrame.size.height -= 64;
-        _window.frame = CGRectInset(keyFrame, ASWindowPadding, ASWindowPadding);
+        _window.frame = keyFrame;
+        //keyFrame.origin.y += 64;
+        //keyFrame.size.height -= 64;
+        //_window.frame = CGRectInset(keyFrame, ASWindowPadding, ASWindowPadding);
         _window.backgroundColor = [UIColor whiteColor];
         _window.layer.borderColor = ASThemeColor.CGColor;
         _window.layer.borderWidth = 2.0;
